@@ -45,7 +45,6 @@ const App = () => {
         
 
     },[debounceText])
-    console.log(result)
     const onTextSubmit = q => setSearch(q)
 
     return (

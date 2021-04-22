@@ -16,7 +16,7 @@ const Description = ({result}) => {
             </div>
         </div>)
         : (
-            <h3>Hi</h3>
+            <h3 className="text-lg text-center text-red-600">No result is found sorry ..</h3>
         )
     
 };
