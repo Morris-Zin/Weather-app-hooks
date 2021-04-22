@@ -1,5 +1,5 @@
 const covertKelvinToC = (kelvin) => {
-    return`${(kelvin - 273)}°C`
+    return`${Math.round((kelvin - 273))}°C`
 };
 
 export default covertKelvinToC;

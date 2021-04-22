@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import fetchWeatherApi from '../api/fetchWeather'
+import Description from './Description';
 import Header from './Header';
 import Search from './Search';
 const key = '55fe789aed680b0611ee4ed1432c0f7e';
@@ -40,18 +41,21 @@ const App = () => {
                 setError(true); 
             })
         }
-        search && fetchWeather(); 
+        debounceText && fetchWeather(); 
         
 
     },[debounceText])
-
+    console.log(result)
     const onTextSubmit = q => setSearch(q)
 
     return (
-        <div>
-            <Search onTextSubmit={onTextSubmit}/>
-            {error && <h1>Please make sure that you typed the correct city name</h1> }
-            <Header name={result}/>
+        <div className="flex justify-around w-screen h-screen flex-col">
+            <div className="mt-4 flex justify-center w-100 h-20 bg-gray-50 shadow-md rounded-md flex-col items-center mb-3">
+                <Search onTextSubmit={onTextSubmit}/>
+                {error && <h4 className="text-base mt-3 text-red-300">Please make sure that you typed the correct city name</h4> }
+                <Header name={result}/>
+            </div>
+            <Description result={result}/>
         </div>
     )
 }
